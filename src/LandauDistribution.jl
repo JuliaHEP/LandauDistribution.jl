@@ -1,5 +1,8 @@
 module LandauDistribution
 
-# Write your package code here.
+import Distributions: location, scale, params, partype, pdf, cdf, cf
+using Distributions: @check_args, @distr_support, ContinuousUnivariateDistribution
+export Landau
 
+include("./landau.jl")
 end
