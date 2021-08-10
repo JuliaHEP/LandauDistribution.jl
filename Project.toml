@@ -1,0 +1,13 @@
+name = "LandauDistribution"
+uuid = "6012e1b8-0df6-47e7-96ae-5acef29e6d22"
+authors = ["Jerry Ling <proton@jling.dev> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.3"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
