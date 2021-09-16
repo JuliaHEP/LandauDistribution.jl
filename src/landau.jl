@@ -55,10 +55,9 @@ params(d::Landau) = (d.μ, d.θ)
 @inline partype(d::Landau{T}) where {T<:Real} = T
 
 #### Evaluation
+pdf(d::Landau, x::Real) = _landau_pdf(x, d.μ, d.θ)
 
-pdf(d::Landau, x::Real) = _landau_pdf((x - d.μ) / d.θ)
-
-cdf(d::Landau, x::Real) = _landau_cdf((x - d.μ) / d.θ)
+cdf(d::Landau, x::Real) = _landau_cdf(x, d.μ, d.θ)
 
 function cf(d::Landau, t::Real)
     z = t * (d.μ + d.θ * (sign(t) * im - twoinvπ * log(abs(t))))
