@@ -55,9 +55,9 @@ params(d::Landau) = (d.μ, d.θ)
 @inline partype(d::Landau{T}) where {T<:Real} = T
 
 #### Evaluation
-pdf(d::Landau, x::Real) = _landau_pdf(x, d.μ, d.θ)
+pdf(d::Landau, x::Real) = _landau_pdf(x, d.θ, d.μ)
 
-cdf(d::Landau, x::Real) = _landau_cdf(x, d.μ, d.θ)
+cdf(d::Landau, x::Real) = _landau_cdf(x, d.θ, d.μ)
 
 function cf(d::Landau, t::Real)
     z = t * (d.μ + d.θ * (sign(t) * im - twoinvπ * log(abs(t))))
@@ -65,6 +65,7 @@ function cf(d::Landau, t::Real)
 end
 
 # https://root.cern.ch/doc/v622/PdfFuncMathCore_8cxx_source.html
+# x1 is the scale and x0 is the location parameter
 function _landau_pdf(x, xi=1, x0=0)
     # landau pdf : algorithm from cernlib g110 denlan
     p1 = @SVector [
@@ -142,6 +143,7 @@ function _landau_pdf(x, xi=1, x0=0)
 end
 
 #https://root.cern.ch/doc/v622/ProbFuncMathCore_8cxx_source.html
+# x1 is the scale and x0 is the location parameter
 function _landau_cdf(x, xi=1, x0=0)
     # implementation of landau distribution (from DISLAN)
     #The algorithm was taken from the Cernlib function dislan(G110)
