@@ -16,4 +16,10 @@ julia> pdf(L, 4)
 
 julia> cdf(L, 4)
 0.6642059976988449
+
+julia> L = Landau(1.5, 2)
+Landau{Float64}(μ=1.5, θ=2.0)
+
+julia> rand(L)
+-0.8439427644712922
 ```
