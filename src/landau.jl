@@ -226,8 +226,8 @@ end
 
 #### Sampling
 # adapted from https://root.cern/root/html524/src/TRandom.cxx.html#332
-function rand(rng::AbstractRNG, d::Landau)
-    f = [
+function rand(rng::AbstractRNG, d::Landau{T})::T where T
+    f = @SVector [
        0.       , 0.       , 0.       ,0.        ,0.        ,-2.244733,
       -2.204365,-2.168163,-2.135219,-2.104898,-2.076740,-2.050397,
       -2.025605,-2.002150,-1.979866,-1.958612,-1.938275,-1.918760,
