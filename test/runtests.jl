@@ -12,3 +12,10 @@ using Test
     @test cdf(Landau(3, 4), 1000000000) ≈ 1
     @test cdf(Landau(5, 6), 1000000000) ≈ 1
 end
+
+@testset "rand()" begin
+    L = Landau(1.5, 0.2)
+    @allocated rand(L)
+    a = @allocated rand(L)
+    @test a == 0
+end
