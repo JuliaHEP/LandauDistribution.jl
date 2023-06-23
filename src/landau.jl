@@ -34,6 +34,7 @@ struct Landau{T<:Real} <: ContinuousUnivariateDistribution
 end
 
 Landau(μ::Real, θ::Real; check_args=true) = Landau(promote(μ, θ)...; check_args=check_args)
+Landau(μ::Integer, θ::Integer; check_args=true) = Landau(float(μ), float(θ); check_args=check_args)
 Landau(μ::Real=0) = Landau(μ, one(μ); check_args=false)
 
 @distr_support Landau -Inf Inf
