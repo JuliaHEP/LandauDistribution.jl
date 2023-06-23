@@ -1,7 +1,7 @@
 name = "LandauDistribution"
 uuid = "6012e1b8-0df6-47e7-96ae-5acef29e6d22"
 authors = ["Jerry Ling <proton@jling.dev> and contributors"]
-version = "0.2.1"
+version = "0.2.2"
 
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
