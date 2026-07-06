@@ -1,5 +1,8 @@
 using StaticArrays
 
+# 2/pi, used in the characteristic function
+const twoinvπ = 2 / π
+
 """
     Landau(μ,θ)
 
