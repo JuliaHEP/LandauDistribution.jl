@@ -1,5 +1,8 @@
 using StaticArrays
 
+# 2/pi, used in the characteristic function
+const twoinvπ = 2 / π
+
 """
     Landau(μ,θ)
 
@@ -28,7 +31,7 @@ struct Landau{T<:Real} <: ContinuousUnivariateDistribution
     μ::T
     θ::T
     function Landau(μ::T, θ::T; check_args=true) where {T<:Real}
-        check_args && @check_args(Landau, θ > zero(θ))
+        @check_args(Landau, (θ, θ > zero(θ)))
         return new{T}(μ, θ)
     end
 end
